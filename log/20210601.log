@@ -1,0 +1,10 @@
+GET / - 404 3.074 ms
+GET /favicon.ico - 404 0.917 ms
+POST /register?user_name=%E5%88%9A%E5%93%A5&user_psd=admin123&real_name=%E5%88%9A%E7%88%B8 - 404 2.288 ms
+POST /register?user_name=%E5%88%9A%E7%88%B8&user_psd=admin123&real_name=%E5%88%9A%E7%88%B9 - 404 2.445 ms
+POST /register?user_name=%E5%88%9A%E7%88%B8&user_psd=admin123&real_name=%E5%88%9A%E7%88%B9 - 404 0.679 ms
+POST /register?user_name=%22%E5%88%9A%E7%88%B9%22&user_psd=%E2%80%9Dadmin123%E2%80%9C&real_name=%E2%80%9C%E5%88%9A%E7%88%B9%E2%80%9D - 404 0.340 ms
+POST /register - 404 2.826 ms
+POST /register - 404 0.732 ms
+GET /register - 404 1.727 ms
+GET /favicon.ico - 404 0.940 ms

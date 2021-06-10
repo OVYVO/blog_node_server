@@ -1,0 +1,15 @@
+GET /aaaa?c=123 - 404 0.684 ms
+GET /aaa - 404 1.818 ms
+GET /favicon.ico - 404 1.057 ms
+GET /stylesheets/style.css - 404 1.874 ms
+GET /stylesheets/style.css - 404 0.694 ms
+GET /stylesheets/style.css - 404 0.394 ms
+GET /stylesheets/style.css - 404 0.448 ms
+GET / - 404 2.588 ms
+GET / - 404 2.146 ms
+GET /favicon.ico - 404 3.341 ms
+GET /favicon.ico - 404 2.298 ms
+GET /login - 404 2.662 ms
+GET /login - 404 2.686 ms
+GET /login - 404 0.847 ms
+GET /login - 404 0.337 ms
