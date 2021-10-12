@@ -15,7 +15,6 @@ class BaseCompoment {
     return encrypted.ciphertext.toString().toUpperCase();
   }
   decrypt(val) {
-    console.log(val)
     let dataHexStr = CryptoJS.enc.Hex.parse(val);
     let dataBase64 = CryptoJS.enc.Base64.stringify(dataHexStr);
     let decrypt = CryptoJS.AES.decrypt(dataBase64, key, { iv, mode: CryptoJS.mode.CBC });
