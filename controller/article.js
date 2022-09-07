@@ -3,6 +3,7 @@ import ArticleModel from '../models/article'
 class Article{
   constructor(){
     this.add = this.add.bind(this)
+    this.list = this.list.bind(this)
   }
   //添加文章
   async add(req, res){
@@ -21,7 +22,24 @@ class Article{
     }
     
   }
-
+  //文章列表
+  async list(req, res){
+    try {
+      const list = await ArticleModel.find({}).limit(10)
+      console.log('===========')
+      console.log(list)
+      console.log('===========')
+      res.send({
+        errCode: 200,
+        success: `请求成功`,
+        data:{
+          list
+        }
+      })
+    } catch (error) {
+      
+    }
+  }
 }
 
 export default new Article()
