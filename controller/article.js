@@ -26,9 +26,6 @@ class Article{
   async list(req, res){
     try {
       const list = await ArticleModel.find({}).limit(10)
-      console.log('===========')
-      console.log(list)
-      console.log('===========')
       res.send({
         errCode: 200,
         success: `请求成功`,
