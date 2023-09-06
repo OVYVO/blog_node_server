@@ -4,7 +4,7 @@ import ConfigLite from 'config-lite';
 const config = ConfigLite(__dirname, '..')
 const signKey = config.key
 
-const setToken = (username, userid) => {
+const generateToken = (username, userid) => {
   return new Promise((resolve, reject) => {
     const token = jwt.sign(
       {
@@ -20,14 +20,14 @@ const setToken = (username, userid) => {
   })
 }
 
-const verToken = (token) => {
+const vertifyToken = (token) => {
   return new Promise((resolve, reject) => {
-    const vertifyToken = jwt.verify(
+    const result = jwt.verify(
       token,
       signKey
     );
-    resolve(vertifyToken)
+    resolve(result)
   })
 }
 
-export default { setToken, verToken }
+export default { generateToken, vertifyToken }

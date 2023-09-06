@@ -9,7 +9,7 @@ const interceptor = async (req, res, next) => {
   const token = req.headers['authorization']
   if (!token) return next()
   try {
-    const verData = await Token.verToken(token)
+    const verData = await Token.vertifyToken(token)
     req.data = verData
   } catch (error) {
     return next()

@@ -16,7 +16,7 @@ class User extends BaseComponent {
       'user_psd': this.decrypt(user_psd)
     }) || {}
     if (!userInfo) return res.send({ errCode: 0, message: '登陆失败,请检查用户名及密码是否正确' })
-    const token = await Token.setToken(userInfo.user_name, userInfo._id)
+    const token = await Token.generateToken(userInfo.user_name, userInfo._id)
     const user_info = {
       "user_id": userInfo._id,
       "user_name": userInfo.user_name,
