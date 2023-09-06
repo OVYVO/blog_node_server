@@ -6,5 +6,7 @@ module.exports = {
   //默认port为27017
   url: 'mongodb://localhost:27017/blog',
   key: 'qq3220860374wx1357662425',
-  iv: 'f710b45f04e37709'
+  iv: 'f710b45f04e37709',
+  //配置在
+  whiteListApi: ['/', '/register']
 }
