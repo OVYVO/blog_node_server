@@ -4,7 +4,7 @@ import ConfigLite from 'config-lite'
 
 const config = ConfigLite(__dirname, '..')
 
-export default const tokenMiddleware = expressJwt({
+export default expressJwt({
   secret: config.key,
   algorithms: ["HS256"],
   credentialsRequired: false,

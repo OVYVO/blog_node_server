@@ -16,7 +16,7 @@ const accessLogStream = FileStreamRotator.getStream({
 })
 
 morgan.format('joke', `:method :url :req[header] :status :response-time ms`);
-export default const logMiddleware = morgan('joke', {
+export default morgan('joke', {
   stream: accessLogStream,
   skip: function (req, res) {
     return res.statusCode < 400

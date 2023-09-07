@@ -1,4 +1,4 @@
-export default const errMiddleware = (err, req, res, next) => {
+export default (err, req, res, next) => {
   switch (err.status) {
     case 401: {
       res.status(401).send('token失效');

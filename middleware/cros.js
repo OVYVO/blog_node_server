@@ -1,4 +1,4 @@
-export default const crosMiddleware = (req, res, next) => {
+export default (req, res, next) => {
   const { origin, Origin, referer, Referer } = req.headers
   const allowOrigin = origin || Origin || referer || Referer || '*'
   res.header("Access-Control-Allow-Origin", allowOrigin)

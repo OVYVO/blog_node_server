@@ -3,7 +3,7 @@ import path from 'path'
 import bodyParser from 'body-parser'
 import multer from 'multer' // 处理multipart/form-data表单数据
 
-import './utils/db'
+// import './utils/db'
 
 import crosMiddleware from './middleware/cros'
 import tokenMiddleware from './middleware/token'
@@ -19,6 +19,7 @@ app.use(objMulter.any())
 // 中间件
 app.all('*',crosMiddleware)
 app.use(tokenMiddleware)
+console.log(1)
 app.use(bodyParser.urlencoded({ extended: false }));
 useRouter(app)
 app.use(logMiddleware)
