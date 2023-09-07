@@ -9,20 +9,23 @@ import crosMiddleware from './middleware/cros'
 import tokenMiddleware from './middleware/token'
 import errMiddleware from './middleware/error'
 import logMiddleware from './middleware/log'
-import useRouter from './routes/index.js'
+import roterMiddleware from './routes/index'
 
 let app = express();
 //静态资源
-let objMulter = multer({dest: 'public/images'})
-app.use('/images',express.static('./public/images'))
-app.use(objMulter.any())
+// let objMulter = multer({dest: 'public/images'})
+// app.use('/images',express.static('./public/images'))
+// app.use(objMulter.any())
 // 中间件
-app.all('*',crosMiddleware)
-app.use(tokenMiddleware)
-console.log(1)
-app.use(bodyParser.urlencoded({ extended: false }));
-useRouter(app)
-app.use(logMiddleware)
+// app.all('*',crosMiddleware)
+// app.use(tokenMiddleware)
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.get('/aaa',(req,res)=>{
+//   throw new Error(JSON.stringify({status: 401}))
+// })
+app.use(roterMiddleware(app))
+
+// app.use(logMiddleware)
 app.use(errMiddleware)
 
 module.exports = app
