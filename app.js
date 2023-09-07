@@ -4,27 +4,24 @@ import bodyParser from 'body-parser'
 import multer from 'multer' // 处理multipart/form-data表单数据
 
 import './utils/db'
-// import cros from './middleware/cros';
-// import interceptors from './middleware/interceptors'
-// import router from './routes/index.js';
-// import logger from './utils/logger'
-// import error from './utils/error'
+
+import crosMiddleware from './middleware/cros'
+import tokenMiddleware from './middleware/token'
+import errMiddleware from './middleware/error'
+import logMiddleware from './middleware/log'
+import useRouter from './routes/index.js'
 
 let app = express();
-//设置文件保存目录
+//静态资源
 let objMulter = multer({dest: 'public/images'})
-//静态资源管理
-app.use('/images',express.static('./public/images'));
-// 跨域处理
-// cros(app)
-// 请求参数插件
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/images',express.static('./public/images'))
 app.use(objMulter.any())
-// 路由挂载
-// router(app)
-// 日志输出
-// logger(app)
-//错误反馈
-// error(err)
+// 中间件
+app.all('*',crosMiddleware)
+app.use(tokenMiddleware)
+app.use(bodyParser.urlencoded({ extended: false }));
+useRouter(app)
+app.use(logMiddleware)
+app.use(errMiddleware)
 
-module.exports = app;
+module.exports = app

@@ -1,13 +1,15 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express')
+// const router = express.Router()
 
-import user from './user'
-import upload from './upload'
-import article from './article'
+import userRouter from './user'
+import uploadRouter from './upload'
+import articleRouter from './article'
+
+// router.use()
 
 export default app => {
   // TODO 路由中间件
-  app.use(user),
-  app.use(upload),
-  app.use(article)
+  app.use(userRouter),
+  app.use(uploadRouter),
+  app.use(articleRouter)
 }
