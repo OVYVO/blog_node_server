@@ -9,7 +9,7 @@ class User extends BaseComponent {
     this.login = this.login.bind(this)
     this.register = this.register.bind(this)
   }
-  async login(req, res, next) {
+  async login(req, res) {
     const { user_name, user_psd } = req.body
     const { _doc: userInfo } = await UserModel.findOne({
       'user_name': user_name,
@@ -29,7 +29,7 @@ class User extends BaseComponent {
       user_info
     })
   }
-  async register(req, res, next) {
+  async register(req, res) {
     const { user_name, user_psd } = req.body
     const reqObj = {
       user_name,
