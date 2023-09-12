@@ -2,8 +2,6 @@ import express from 'express'
 import path from 'path'
 import multer from 'multer' // 处理multipart/form-data表单数据
 
-import './utils/db'
-
 import crosMiddleware from './middleware/cros'
 import tokenMiddleware from './middleware/token'
 import logMiddleware from './middleware/log'

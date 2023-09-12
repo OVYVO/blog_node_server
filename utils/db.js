@@ -30,5 +30,3 @@ db.on('close', function () {
   console.log(chalk.red('===========******连接断开，尝试重新连接******==========='));
   mongoose.connect(config.url, { server: { auto_reconnect: true } });
 });
-
-export default db;
