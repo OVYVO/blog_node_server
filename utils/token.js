@@ -22,7 +22,10 @@ export const generateToken = (username, userid) => {
 
 export const vertifyToken = (token) => {
   return new Promise((resolve, reject) => {
-    let decoded = jwt.verify(token, signKey)
-    resolve(decoded)
+    try {
+      resolve(jwt.verify(token, signKey))
+    } catch (error) {
+      reject(error)
+    }
   })
 }
